@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WCAG 2.2 Color Contrast Checker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header><h1>WCAG 2.2 Color Contrast Checker</h1></header>
+<main id="main">
+<form id="form" novalidate>
+<div class="field">
+<label for="fg-hex">Text (foreground) color</label>
+<div class="pair"><input type="color" id="fg-pick" value="#1a1a1a" aria-label="Foreground color picker"><input type="text" id="fg-hex" value="#1A1A1A" maxlength="7" autocomplete="off" aria-describedby="fg-err"></div>
+<p class="err" id="fg-err" role="alert"></p>
+</div>
+<div class="field">
+<label for="bg-hex">Background color</label>
+<div class="pair"><input type="color" id="bg-pick" value="#ffffff" aria-label="Background color picker"><input type="text" id="bg-hex" value="#FFFFFF" maxlength="7" autocomplete="off" aria-describedby="bg-err"></div>
+<p class="err" id="bg-err" role="alert"></p>
+</div>
+<button type="button" id="swap">Swap colors</button>
+</form>
+<section aria-labelledby="res-h">
+<h2 id="res-h">Result</h2>
+<p class="ratio" id="ratio" aria-live="polite"></p>
+<div id="preview" class="preview"><p class="normal">Normal text sample (16px)</p><p class="large">Large text sample (24px)</p></div>
+<table>
+<caption>Pass or fail by success criterion</caption>
+<thead><tr><th scope="col">Criterion</th><th scope="col">Required</th><th scope="col">Result</th></tr></thead>
+<tbody id="results"></tbody>
+</table>
+</section>
+<section>
+<h2>Notes</h2>
+<ul>
+<li>Large text is at least 18pt (24px) or 14pt (about 18.66px) bold.</li>
+<li>Ratios are not rounded up: 4.499:1 fails 4.5:1.</li>
+<li>1.4.11 applies to UI component boundaries, focus indicators and meaningful graphics.</li>
+<li>Logos and purely decorative text are exempt. This tool cannot judge images, gradients or transparency.</li>
+</ul>
+</section>
+</main>
+<script src="contrast.js"></script>
+</body>
+</html>
